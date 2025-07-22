@@ -36,7 +36,7 @@ The API accepts a JSON payload containing a `url` field, generates a QR Code ima
 ### Request
 
 **Method:** POST  
-**Endpoint:** `https://3grrhgboa8.execute-api.us-east-1.amazonaws.com/prod/generate`
+**Endpoint:** `https://<api-id>.execute-api.<region>.amazonaws.com/<stage>/generate`
 
 **Headers:**
 ```
@@ -58,7 +58,7 @@ Content-Type: application/json
     "headers": {
         "Content-Type": "application/json"
     },
-    "body": "{\"qr_code_url\": \"https://s3-bucket-qrcodes-thiagodev.s3.us-east-1.amazonaws.com/qrcodes/qr_20250722_183117802702.png\"}"
+    "body": "{\"qr_code_url\": \"https://<bucket-name>.s3.<region>.amazonaws.com/qrcodes/qr_20250722_113055123456.png"}"
 }
 ```
 
@@ -87,7 +87,7 @@ The Lambda container expects the following environment variables:
 ## Running the API with `curl`
 
 ```bash
-curl -X POST https://3grrhgboa8.execute-api.us-east-1.amazonaws.com/prod/generate \
+curl -X POST https://<api-id>.execute-api.<region>.amazonaws.com/<stage>/generate \
   -H "Content-Type: application/json" \
   -d '{"url": "https://aws.amazon.com/"}'
 ```
